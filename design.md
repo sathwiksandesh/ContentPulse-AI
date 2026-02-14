@@ -266,110 +266,115 @@ Example record stored in `generated_history.json`:
   },
   "output": "Generated post content..."
 }
-8. Error Handling Strategy
-8.1 Gemini API Errors
+```
+## 8. Error Handling Strategy
 
-Handled cases:
+### 8.1 Gemini API Errors
 
-Invalid API key
+The application handles Gemini API failures gracefully without crashing the UI.  
+The following cases are managed:
 
-Model not available
+- Invalid API Key  
+- Model not available / unsupported model  
+- Quota exceeded (rate limits or daily usage limits)  
+- Network/API connection issues (timeouts, internet failure)
 
-Quota exceeded
+If any of the above errors occur, the system displays a user-friendly error message in the Streamlit interface.
 
-Network/API connection issues
+---
 
-The UI displays errors as messages instead of crashing the app.
+### 8.2 User Input Validation
 
-8.2 User Input Validation
+Before sending prompts to Gemini API, the system validates user inputs.  
+If required fields are missing, warnings are displayed:
 
-If required fields are missing:
+- Topic not entered  
+- Caption not entered  
+- Content not pasted  
+- Niche not entered for weekly planner  
 
-Topic not entered
+This ensures no empty or invalid prompts are sent to the AI model.
 
-Caption not entered
+---
 
-Content not pasted
+## 9. Security Considerations
 
-The app shows warning messages.
+### 9.1 API Key Protection
 
-9. Security Considerations
-9.1 API Key Protection
+To protect sensitive credentials, the Gemini API key is stored securely:
 
-API key is stored in .env file
+- API key is stored in a `.env` file  
+- `.env` file is excluded from GitHub using `.gitignore`  
+- Key is loaded using the `python-dotenv` library  
 
-.env file is excluded from GitHub uploads
+This prevents accidental leakage of API keys in public repositories.
 
-Key is loaded using python-dotenv
+---
 
-9.2 User Data Handling
+### 9.2 User Data Handling
 
-No user authentication is implemented in this prototype
+- No user authentication is implemented in this prototype version  
+- User-generated content is stored only locally in JSON history files  
+- No personal data is shared except the prompt text sent to Gemini API  
 
-User-generated content is stored only locally
+---
 
-No personal data is sent except prompt text
+## 10. Scalability Considerations
 
-10. Scalability Considerations:-
+### 10.1 Current Prototype Scalability
 
-10.1 Current Prototype Scalability
+Streamlit supports multiple users but is mainly intended for prototype and demo deployment.
 
-Streamlit supports multiple users but is best for prototype/demo usage.
+---
 
-10.2 Future Scaling Improvements
+### 10.2 Future Scaling Improvements
 
-Future versions can integrate:
+Future versions can be scaled by integrating:
 
-FastAPI backend
+- FastAPI backend services  
+- Database storage (MongoDB / PostgreSQL)  
+- User authentication (OAuth / Google Login)  
+- Cloud deployment on AWS or GCP  
+- Job queues for bulk content generation and scheduling  
 
-Database (MongoDB/PostgreSQL)
+---
 
-User authentication (OAuth/Google login)
+## 11. Future Roadmap
 
-Cloud deployment on AWS/GCP
+### Phase 2 Enhancements
 
-Job queues for bulk content generation
+- Multi-language support (Hindi, Telugu, Tamil)  
+- Brand voice personalization (user-defined writing style)  
+- Export generated content to PDF/Word/CSV  
+- Copy-to-clipboard and download outputs  
 
-11. Future Roadmap
-Phase 2 Enhancements
+---
 
-Multi-language support (Hindi, Telugu, Tamil)
+### Phase 3 Enhancements
 
-Brand voice personalization (user-defined style)
+- Social media scheduling integration  
+- Trend analysis using hashtags and viral topics  
+- Engagement prediction scoring system  
+- AI thumbnail and poster generation support  
 
-Export feature (PDF/Word/CSV)
+---
 
-Copy-to-clipboard & download outputs
+### Phase 4 (Production-Level Deployment)
 
-Phase 3 Enhancements
+- Enterprise deployment using Amazon Bedrock or Vertex AI  
+- Real-time analytics dashboard  
+- Multi-user team collaboration workspace  
 
-Social media scheduling integration
+---
 
-Trend analysis (hashtags + viral topics)
+## 12. Summary
 
-Engagement prediction scoring
-
-Auto thumbnail & poster generator (AI image support)
-
-Phase 4 (Production Level)
-
-Full AWS Bedrock integration for enterprise-level deployment
-
-Real-time analytics dashboard
-
-Multi-user team collaboration workspace
-
-12. Summary
-
-ContentPulse AI is a practical AI-based content assistant that helps users generate and optimize digital content quickly.
+ContentPulse AI is a practical AI-based content assistant that helps users generate and optimize digital content quickly.  
 By using Google Gemini API and Streamlit, the system delivers a fast and user-friendly prototype suitable for hackathon evaluation and future real-world deployment.
 
 The solution demonstrates:
 
-Creativity and usefulness in content workflows
-
-Practical AI integration
-
-Simple but scalable architecture
-
-Strong real-world relevance in India
+- Creativity and usability in content workflows  
+- Effective AI integration for content creation  
+- Simple but scalable architecture  
+- Strong relevance and real-world impact for users in India  
