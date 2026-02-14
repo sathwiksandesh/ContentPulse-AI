@@ -15,49 +15,53 @@ This solution is designed to be:
 ## 2. High-Level Architecture
 
 ### 2.1 Architecture Diagram
+### 2.1 Architecture Diagram
 
-┌──────────────────────────────────────────────────────┐
-│ User Interface │
-│ (Streamlit Web App) │
-│ │
-│ Features: │
-│ - Generate Social Media Post │
-│ - Repurpose Content │
-│ - Weekly Content Planner │
-│ - Caption Optimizer │
-└──────────────────────────┬───────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────────────┐
-│ Application Layer │
-│ (Python Business Logic) │
-│ │
-│ - Prompt Engineering Module │
-│ - Request Validation │
-│ - API Request Builder │
-│ - Response Parser │
-│ - History Saving Module (JSON) │
-└──────────────────────────┬───────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────────────┐
-│ AI Model Layer │
-│ (Google Gemini API) │
-│ │
-│ - Text Generation │
-│ - Summarization │
-│ - Content Optimization │
-│ - Planning & Strategy Suggestions │
-└──────────────────────────┬───────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────────────┐
-│ Storage Layer │
-│ Local JSON File Storage │
-│ history/generated_history.json │
-└──────────────────────────────────────────────────────┘   
-
-
+```text
++-------------------------------------------------------------+
+|                    User Interface Layer                      |
+|                   (Streamlit Web Application)                |
+|                                                             |
+|  Features:                                                  |
+|   - Generate Social Media Post                               |
+|   - Repurpose Content                                        |
+|   - Weekly Content Planner                                   |
+|   - Caption Optimizer                                        |
++-------------------------------+-----------------------------+
+                                |
+                                v
++-------------------------------------------------------------+
+|                    Application Logic Layer                   |
+|                      (Python Backend Code)                   |
+|                                                             |
+|  Modules:                                                   |
+|   - Prompt Engineering Module                                |
+|   - Input Validation Module                                  |
+|   - Gemini API Request Handler                               |
+|   - Response Formatter / Parser                              |
+|   - History Saving Module (JSON)                             |
++-------------------------------+-----------------------------+
+                                |
+                                v
++-------------------------------------------------------------+
+|                         AI Model Layer                       |
+|                     (Google Gemini API)                      |
+|                                                             |
+|  Capabilities:                                              |
+|   - Text Generation                                          |
+|   - Summarization                                            |
+|   - Content Optimization                                     |
+|   - Strategy & Planning Suggestions                          |
++-------------------------------+-----------------------------+
+                                |
+                                v
++-------------------------------------------------------------+
+|                         Storage Layer                        |
+|                    Local JSON File Storage                   |
+|                                                             |
+|  File: history/generated_history.json                        |
++-------------------------------------------------------------+
+```
 
 ---
 
@@ -378,3 +382,4 @@ The solution demonstrates:
 - Effective AI integration for content creation  
 - Simple but scalable architecture  
 - Strong relevance and real-world impact for users in India  
+
