@@ -107,7 +107,7 @@ Gemini model is auto-selected based on availability in the user account.
 ---
 
 ## 📂 Project Structure
-
+```
 
 ContentPulse-AI/
 │── app.py
@@ -119,7 +119,7 @@ ContentPulse-AI/
 │
 └── history/
 └── generated_history.json  
-
+```
 ---
 
 ## ⚙ Installation & Setup
@@ -143,3 +143,4 @@ python -m streamlit run app.py
 The app will open in your browser at:
 
 http://localhost:8501
+
